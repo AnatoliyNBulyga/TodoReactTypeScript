@@ -1,16 +1,22 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import Navbar from "./components/Navbar";
-import TodoForm from "./components/TodoForm";
+import TodosPage from "./pages/TodosPage";
+import About from "./pages/About";
 
-const App: React.FunctionComponent = () => {
+const App: React.FC = () => {
+
   return (
-      <React.Fragment>
+      <BrowserRouter>
         <Navbar/>
         <div className="container">
-          <TodoForm />
+            <Switch>
+               <Route path="/" exact component={TodosPage} />
+               <Route path="/about" component={About} />
+            </Switch>
         </div>
 
-      </React.Fragment>
+      </BrowserRouter>
   );
 }
 
